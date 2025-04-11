@@ -10,8 +10,8 @@ import {
   isEthAddress,
   isEthAddressArray,
 } from '../commons/validators/paramValidators';
-import { IAaveIncentivesController } from './typechain/IAaveIncentivesController';
-import { IAaveIncentivesController__factory } from './typechain/IAaveIncentivesController__factory';
+import { I0xLendingIncentivesController } from './typechain/I0xLendingIncentivesController';
+import { I0xLendingIncentivesController__factory } from './typechain/I0xLendingIncentivesController__factory';
 
 export type ClaimRewardsMethodType = {
   user: string;
@@ -27,11 +27,11 @@ export interface IncentivesControllerInterface {
 }
 
 export class IncentivesController
-  extends BaseService<IAaveIncentivesController>
+  extends BaseService<I0xLendingIncentivesController>
   implements IncentivesControllerInterface
 {
   constructor(provider: providers.Provider) {
-    super(provider, IAaveIncentivesController__factory);
+    super(provider, I0xLendingIncentivesController__factory);
   }
 
   @IncentivesValidator
@@ -42,7 +42,7 @@ export class IncentivesController
     @isEthAddressArray('assets')
     { user, assets, to, incentivesControllerAddress }: ClaimRewardsMethodType,
   ): EthereumTransactionTypeExtended[] {
-    const incentivesContract: IAaveIncentivesController =
+    const incentivesContract: I0xLendingIncentivesController =
       this.getContractInstance(incentivesControllerAddress);
     const txCallback: () => Promise<transactionType> = this.generateTxCallback({
       rawTxMethod: async () =>

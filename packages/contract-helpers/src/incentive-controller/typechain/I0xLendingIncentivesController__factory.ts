@@ -4,18 +4,18 @@
 import { Contract, Signer } from 'ethers';
 import { Provider } from '@ethersproject/providers';
 
-import type { IAaveIncentivesController } from './IAaveIncentivesController';
+import type { I0xLendingIncentivesController } from './I0xLendingIncentivesController';
 
-export class IAaveIncentivesController__factory {
+export class I0xLendingIncentivesController__factory {
   static connect(
     address: string,
     signerOrProvider: Signer | Provider,
-  ): IAaveIncentivesController {
+  ): I0xLendingIncentivesController {
     return new Contract(
       address,
       _abi,
       signerOrProvider,
-    ) as IAaveIncentivesController;
+    ) as I0xLendingIncentivesController;
   }
 }
 

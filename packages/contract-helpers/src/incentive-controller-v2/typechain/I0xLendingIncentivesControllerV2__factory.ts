@@ -4,9 +4,9 @@
 import { Contract, Signer, utils } from 'ethers';
 import { Provider } from '@ethersproject/providers';
 import type {
-  IAaveIncentivesControllerV2,
-  IAaveIncentivesControllerV2Interface,
-} from './IAaveIncentivesControllerV2';
+  I0xLendingIncentivesControllerV2,
+  I0xLendingIncentivesControllerV2Interface,
+} from './I0xLendingIncentivesControllerV2';
 
 const _abi = [
   {
@@ -842,19 +842,19 @@ const _abi = [
   },
 ];
 
-export class IAaveIncentivesControllerV2__factory {
+export class I0xLendingIncentivesControllerV2__factory {
   static readonly abi = _abi;
-  static createInterface(): IAaveIncentivesControllerV2Interface {
-    return new utils.Interface(_abi) as IAaveIncentivesControllerV2Interface;
+  static createInterface(): I0xLendingIncentivesControllerV2Interface {
+    return new utils.Interface(_abi) as I0xLendingIncentivesControllerV2Interface;
   }
   static connect(
     address: string,
     signerOrProvider: Signer | Provider,
-  ): IAaveIncentivesControllerV2 {
+  ): I0xLendingIncentivesControllerV2 {
     return new Contract(
       address,
       _abi,
       signerOrProvider,
-    ) as IAaveIncentivesControllerV2;
+    ) as I0xLendingIncentivesControllerV2;
   }
 }
