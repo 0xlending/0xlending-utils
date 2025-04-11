@@ -6,7 +6,7 @@ import {
   valueToBigNumber,
 } from '../../bignumber';
 import { RAY_DECIMALS, SECONDS_PER_YEAR, USD_DECIMALS } from '../../constants';
-import { LTV_PRECISION } from '../../index';
+import { LTV_PRECISION } from '../../constants';
 import { calculateCompoundedRate } from '../compounded-interest/calculate-compounded-interest';
 import {
   EModeData,

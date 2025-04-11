@@ -1,10 +1,9 @@
 {
     "name": "@0xlending/math-utils",
-    "version": "0.0.1",
+    "version": "0.0.5",
     "description": "math utils",
     "author": "",
     "main": "index.js",
-
     "repository": "https://github.com/0xlending/0xlending-utils",
     "homepage": "",
     "scripts": {},
