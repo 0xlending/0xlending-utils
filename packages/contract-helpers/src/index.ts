@@ -22,8 +22,6 @@ export * from './v3-pool-contract-bundle';
 export * from './synthetix-contract';
 export * from './baseDebtToken-contract';
 export * from './erc20-2612';
-export * from './paraswap-debtSwitch-contract';
-export * from './paraswap-withdrawAndSwitchAdapter-contract';
 export * from './token-wrapper';
 export * from './abpt-migration';
 
