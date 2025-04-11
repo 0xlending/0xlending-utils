@@ -1,6 +1,6 @@
 {
     "name": "@0xlending/contract-helpers",
-    "version": "0.0.7",
+    "version": "0.0.9",
     "description": "contract helpers",
     "author": "",
     "main": "index.js",

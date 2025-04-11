@@ -8,7 +8,6 @@ export * from './v3-UiPoolDataProvider-contract';
 export * from './v3-UiPoolDataProvider-legacy-contract';
 export * from './wallet-balance-provider';
 export * from './cl-feed-registry';
-// export * from './uiStakeDataProvider-contract';
 export * from './V3-uiStakeDataProvider-contract';
 
 // services
@@ -17,7 +16,6 @@ export * from './incentive-controller';
 export * from './erc20-contract';
 export * from './lendingPool-contract';
 export * from './lendingPool-contract-bundle';
-export * from './faucet-contract';
 export * from './v3-faucet-contract';
 export * from './v3-pool-contract';
 export * from './v3-pool-contract-bundle';
