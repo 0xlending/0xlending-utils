@@ -271,29 +271,6 @@ export function UiIncentiveDataProviderValidator(
   };
 }
 
-// export function LTAMigratorValidator(
-//   target: any,
-//   propertyName: string,
-//   descriptor: TypedPropertyDescriptor<any>,
-// ): any {
-//   const method = descriptor.value;
-//   descriptor.value = function () {
-//     const LEND_TO_AAVE_MIGRATOR =
-//
-//       this.migratorConfig?.LEND_TO_AAVE_MIGRATOR || '';
-
-//     if (!utils.isAddress(LEND_TO_AAVE_MIGRATOR)) {
-//       console.error(`[MigratorValidator] You need to pass valid addresses`);
-//       return [];
-//     }
-
-//     isEthAddressValidator(target, propertyName, arguments);
-
-//     amountGtThan0Validator(target, propertyName, arguments);
-
-//     return method?.apply(this, arguments);
-//   };
-// }
 
 export function IncentivesValidator(
   target: any,
@@ -429,55 +406,7 @@ export function RepayWithCollateralValidator(
   };
 }
 
-export function StakingValidator(
-  target: any,
-  propertyName: string,
-  descriptor: TypedPropertyDescriptor<any>,
-): any {
-  const method = descriptor.value;
-  descriptor.value = function () {
-    if (
 
-      !utils.isAddress(this.stakingContractAddress)
-    ) {
-      console.error(`[StakingValidator] You need to pass valid addresses`);
-      return [];
-    }
-
-    isEthAddressValidator(target, propertyName, arguments);
-
-    amountGtThan0Validator(target, propertyName, arguments);
-
-    amountGtThan0OrMinus1(target, propertyName, arguments);
-
-    return method.apply(this, arguments);
-  };
-}
-
-export function SignStakingValidator(
-  target: any,
-  propertyName: string,
-  descriptor: TypedPropertyDescriptor<any>,
-): any {
-  const method = descriptor.value;
-  descriptor.value = function () {
-    if (
-
-      !utils.isAddress(this.stakingContractAddress)
-    ) {
-      console.error(`[StakingValidator] You need to pass valid addresses`);
-      return [];
-    }
-
-    isEthAddressValidator(target, propertyName, arguments);
-
-    amountGtThan0Validator(target, propertyName, arguments);
-
-    amount0OrPositiveValidator(target, propertyName, arguments);
-
-    return method.apply(this, arguments);
-  };
-}
 
 export function FaucetValidator(
   target: any,
@@ -518,96 +447,6 @@ export function WETHValidator(
     amountGtThan0OrMinus1(target, propertyName, arguments);
 
     amount0OrPositiveValidator(target, propertyName, arguments);
-
-    return method.apply(this, arguments);
-  };
-}
-
-export function GovHelperValidator(
-  target: any,
-  propertyName: string,
-  descriptor: TypedPropertyDescriptor<any>,
-): any {
-  const method = descriptor.value;
-  descriptor.value = function () {
-    if (
-      !utils.isAddress(this.aaveGovernanceV2Address) ||
-      !utils.isAddress(this.aaveGovernanceV2HelperAddress)
-    ) {
-      console.error(`[GovernanceValidator] You need to pass valid addresses`);
-      return [];
-    }
-
-    isEthAddressValidator(target, propertyName, arguments);
-
-    amount0OrPositiveValidator(target, propertyName, arguments);
-
-    isEthAddressArrayValidator(target, propertyName, arguments);
-
-    return method.apply(this, arguments);
-  };
-}
-
-export function GovValidator(
-  target: any,
-  propertyName: string,
-  descriptor: TypedPropertyDescriptor<any>,
-): any {
-  const method = descriptor.value;
-  descriptor.value = function () {
-    if (
-      !utils.isAddress(this.aaveGovernanceV2Address)
-    ) {
-      console.error(`[GovernanceValidator] You need to pass valid addresses`);
-      return [];
-    }
-
-    isEthAddressValidator(target, propertyName, arguments);
-
-    amount0OrPositiveValidator(target, propertyName, arguments);
-
-    return method.apply(this, arguments);
-  };
-}
-
-export function GovDelegationValidator(
-  target: any,
-  propertyName: string,
-  descriptor: TypedPropertyDescriptor<any>,
-): any {
-  const method = descriptor.value;
-  descriptor.value = function () {
-    isEthAddressValidator(target, propertyName, arguments);
-    isEthAddressOrEnsValidator(target, propertyName, arguments);
-    amountGtThan0Validator(target, propertyName, arguments);
-    amount0OrPositiveValidator(target, propertyName, arguments);
-
-    return method.apply(this, arguments);
-  };
-}
-
-export function StakeUiDataProviderValidator(
-  target: any,
-  propertyName: string,
-  descriptor: TypedPropertyDescriptor<any>,
-): any {
-  const method = descriptor.value;
-  descriptor.value = function () {
-    isEthAddressValidator(target, propertyName, arguments);
-
-    return method.apply(this, arguments);
-  };
-}
-
-export function V3MigratorValidator(
-  target: any,
-  propertyName: string,
-  descriptor: TypedPropertyDescriptor<any>,
-): any {
-  const method = descriptor.value;
-  descriptor.value = function () {
-    isEthAddressValidator(target, propertyName, arguments);
-    isEthAddressArrayValidator(target, propertyName, arguments);
 
     return method.apply(this, arguments);
   };

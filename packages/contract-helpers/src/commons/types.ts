@@ -91,9 +91,6 @@ export type ConstantAddressesByNetwork = Record<
   }
 >;
 
-export type MigratorConfig = {
-  LEND_TO_AAVE_MIGRATOR: tEthereumAddress;
-};
 
 export type LendingPoolMarketConfig = {
   LENDING_POOL: tEthereumAddress;
@@ -111,13 +108,8 @@ export type LendingPoolConfig = Record<
 export enum eEthereumTxType {
   ERC20_APPROVAL = 'ERC20_APPROVAL',
   DLP_ACTION = 'DLP_ACTION',
-  GOVERNANCE_ACTION = 'GOVERNANCE_ACTION',
-  GOV_DELEGATION_ACTION = 'GOV_DELEGATION_ACTION',
-  STAKE_ACTION = 'STAKE_ACTION',
-  MIGRATION_LEND_AAVE = 'MIGRATION_LEND_AAVE',
   FAUCET_MINT = 'FAUCET_MINT',
   REWARD_ACTION = 'REWARD_ACTION',
-  V3_MIGRATION_ACTION = 'V3_MIGRATION_ACTION',
   FAUCET_V2_MINT = 'FAUCET_V2_MINT',
 }
 
@@ -148,7 +140,6 @@ export enum ProtocolAction {
   unstake = 'unstake',
   switchBorrowRateMode = 'switchBorrowRateMode',
   setEModeUsage = 'setEModeUsage',
-  governanceDelegation = 'governanceDelegation',
   claimRewards = 'claimRewards',
   claimRewardsAndStake = 'claimRewardsAndStake',
   setUsageAsCollateral = 'setUsageAsCollateral',
@@ -158,18 +149,6 @@ export enum ProtocolAction {
   migrateABPT = 'migrateABPT',
 }
 
-export enum GovernanceVote {
-  Abstain = 0,
-  Yes = 1,
-  No = 2,
-}
-
-export enum Stake {
-  aave = 'aave',
-  bpt = 'bpt',
-  gho = 'gho',
-  bptv2 = 'bptv2',
-}
 
 export type GasRecommendationType = Record<
   string,
@@ -179,13 +158,7 @@ export type GasRecommendationType = Record<
   }
 >;
 
-export type GeneratedTx = {
-  tx: transactionType;
-  gas: {
-    price: string;
-    limit: string;
-  };
-};
+
 
 export type transactionType = {
   value?: string;
@@ -203,16 +176,10 @@ export type AddressModel = {
   LENDINGPOOL_ADDRESS: tEthereumAddress;
   LENDINGPOOL_CORE_ADDRESS: tEthereumAddress;
   SYNTHETIX_PROXY_ADDRESS: tEthereumAddress;
-  GOVERNANCE_PROTO_CONTRACT: tEthereumAddress;
-  LEND_TO_AAVE_MIGRATOR: tEthereumAddress;
   WETH_GATEWAY: tEthereumAddress;
   FAUCET: tEthereumAddress;
   SWAP_COLLATERAL_ADAPTER: tEthereumAddress;
   REPAY_WITH_COLLATERAL_ADAPTER: tEthereumAddress;
-  AAVE_GOVERNANCE_V2: tEthereumAddress;
-  AAVE_GOVERNANCE_V2_EXECUTOR_SHORT: tEthereumAddress;
-  AAVE_GOVERNANCE_V2_EXECUTOR_LONG: tEthereumAddress;
-  AAVE_GOVERNANCE_V2_HELPER: tEthereumAddress;
   FLASHLIQUIDATION: tEthereumAddress;
   INCENTIVES_CONTROLLER: tEthereumAddress;
   INCENTIVES_CONTROLLER_REWARD_TOKEN: tEthereumAddress;
@@ -221,8 +188,6 @@ export type AddressModel = {
 export type tCommonContractAddressBetweenMarkets = Pick<
   AddressModel,
   | 'SYNTHETIX_PROXY_ADDRESS'
-  | 'GOVERNANCE_PROTO_CONTRACT'
-  | 'LEND_TO_AAVE_MIGRATOR'
   | 'WETH_GATEWAY'
   | 'FAUCET'
   | 'SWAP_COLLATERAL_ADAPTER'
@@ -244,13 +209,7 @@ export type tDistinctContractAddressBetweenMarketsV2 = Pick<
   'LENDINGPOOL_ADDRESS'
 >;
 
-export type tDistinctGovernanceV2Addresses = Pick<
-  AddressModel,
-  | 'AAVE_GOVERNANCE_V2'
-  | 'AAVE_GOVERNANCE_V2_EXECUTOR_SHORT'
-  | 'AAVE_GOVERNANCE_V2_EXECUTOR_LONG'
-  | 'AAVE_GOVERNANCE_V2_HELPER'
->;
+
 
 export type tdistinctStakingAddressesBetweenTokens = {
   TOKEN_STAKING_ADDRESS: tEthereumAddress;
@@ -299,10 +258,6 @@ export type DefaultProviderKeys = {
   alchemy?: string;
 };
 
-export type GovernanceConfigType = Record<
-  string,
-  tDistinctGovernanceV2Addresses
->;
 export type StakingConfigType = Record<
   string,
   Record<string, tdistinctStakingAddressesBetweenTokens>
