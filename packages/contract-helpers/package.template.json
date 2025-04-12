@@ -1,6 +1,6 @@
 {
-    "name": "wendychaung-contract-helpers",
-    "version": "0.0.23",
+    "name": "@0xlending/contract-helper",
+    "version": "0.0.1",
     "description": "contract helpers",
     "author": "",
     "main": "index.js",
